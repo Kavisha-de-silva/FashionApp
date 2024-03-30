@@ -44,7 +44,7 @@ struct HeaderView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-            .frame(height: 56)
+            .frame(height: 46)
             .background(.white)
             .shadow(radius: 0.3)
         }

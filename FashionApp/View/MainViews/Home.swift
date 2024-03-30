@@ -15,12 +15,13 @@ struct Home: View {
                     
                         VStack(spacing: 0) {
                                         ScrollView(.vertical) {
-                                            HeroImageView().onTapGesture{}
-                                            //print("Tapped")
+                                            HeroImageView()
+                                            NewArrival()
+                                           
                                         }
                                         .edgesIgnoringSafeArea(.all)
                                     }
-                                        .padding(.top, 56)
+                                        .padding(.top, 50)
                         }
                         
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -41,31 +42,47 @@ struct Home: View {
     @ViewBuilder
         private func HeroImageView() -> some View {
              ZStack {
-            Image("Hero")
+            
+            Image("MainBanner")
                  .resizable()
                  .aspectRatio(contentMode: .fit)
                  .frame(maxWidth: .infinity)
-                 .frame(height: 620)
+                 .frame(height: 520)
 
             Button {
                 print("Explore Collection Button Click")
             } label: {
                 RoundedRectangle(cornerRadius: 30).overlay {
                     Text("Explore Collection")
-                        .font(Font.custom("Tenor Sans", size:20))
+                        .font(.system(size:20))
                         .foregroundColor(.white)
                 }
                 .frame(width: 253, height: 40)
                 .tint(.black.opacity(0.4))
-                .offset(.init(width: 0, height: 250))
+                .offset(.init(width: 0, height: 220))
                }
 
             }
         }
 
         @ViewBuilder
-        private func NewArrivalView() -> some View {
-
+        private func NewArrival() -> some View {
+            Text("New Arrival")
+                .font(.system(size:25))
+                .multilineTextAlignment(.center)
+                .foregroundColor(.black)
+                .frame(width: 225, height: 32, alignment: .top)
+                .padding(.top, 20)
+            
+            Image("Divider")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 140)
+                .padding(.top, 10)
+            
+            VStack{
+                
+            }
         }
 
         @ViewBuilder
