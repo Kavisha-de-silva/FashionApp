@@ -7,7 +7,13 @@
 
 import SwiftUI
 
+
 struct Home: View {
+    
+    private var categories = [Categories.All.rawValue, Categories.Apparel.rawValue, Categories.TShirt.rawValue, Categories.Bag.rawValue]
+    
+    @State private var selectedCategory: Int = 0
+    
     var body: some View {
         ZStack{
                     Color.white.edgesIgnoringSafeArea(.all)
@@ -17,6 +23,14 @@ struct Home: View {
                                         ScrollView(.vertical) {
                                             HeroImageView()
                                             NewArrival()
+                                            Image("Brand")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                            
+                                            CollectionView()
+                                            Footer()
+                                            
+                                            Spacer()
                                            
                                         }
                                         .edgesIgnoringSafeArea(.all)
@@ -81,13 +95,62 @@ struct Home: View {
                 .padding(.top, 10)
             
             VStack{
+                HStack(spacing: 20){
+                    ForEach(0..<categories.count, id: \.self){ i in
+                        CategoryView(isSelected: i == selectedCategory, title: categories[i])
+                            .onTapGesture {
+                                selectedCategory = i
+                            }
+                    }
+                }
+                .frame(maxWidth: .infinity)
                 
+                HStack{
+                    ProductItems(product: product1)
+                    ProductItems(product: product2)
+                }
+                HStack{
+                    ProductItems(product: product1)
+                    ProductItems(product: product2)
+                }
+                Button {
+                    
+                } label: {
+                    HStack(alignment: .center, spacing: 8) {
+                        Text("Explore More")
+                            .font(.system(size:20))
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color.BodyGrey)
+                            
+                        Image(systemName: "arrow.forward")
+                            .frame(width: 18, height: 18)
+                    }
+                }
+                .tint(Color.BodyGrey)
+                .padding(12)
             }
         }
 
         @ViewBuilder
-        private func CollectionsView() -> some View {
-
+        private func CollectionView() -> some View {
+            Text("Collections")
+                .font(.system(size: 28))
+                .foregroundStyle(Color.black)
+            
+            Image("Collection 1")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(height: 244, alignment: .top)
+                .clipped()
+            
+            Image("Collection 2")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(height: 244, alignment: .top)
+                .clipped()
+            
+            
+            
         }
 
         @ViewBuilder

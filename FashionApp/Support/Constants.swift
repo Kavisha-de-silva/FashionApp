@@ -37,4 +37,14 @@ var product7: Products = .init(title: "Casual Extended Sleeves Color Block Women
 var product8: Products = .init(title: "Casual Extended Sleeves Color Block Women Orange Top", price: 1295, description: "Orange and grey regular top Colourblocked V-neck, long, extended sleeves Waist tie-ups detail Knitted", Image: ["P01_01", "P01_02", "P01_03", "P01_04"], category: .TShirt, gender: .Female)
 
 
+//func tenorSans(_ size: CGFloat) -> Font {
+ //   Font.custom("Tenor Sans", size: size)
+//}
 
+/*let hashtags = ["#2021", "#spring", "#collection", "#fall", "#dress", "#autumncollection", "#openfashion"]
+
+var cartItems: [cartItem] = [.init(product: product1, count: 1), .init(product: product2, count: 2), .init(product: product3, count: 1)]
+
+var products: [Products] = [product1, product2, product3, product4, product5, product6]
+
+*/
