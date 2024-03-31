@@ -15,7 +15,7 @@ struct Tab: View {
                     Image(systemName: "1.circle")
                     Text("Tab 2")
                 }
-            Text("Second Tab")
+            SideCartViewTemp()
                 .tabItem {
                     Image(systemName: "2.circle")
                     Text("Tab 2")

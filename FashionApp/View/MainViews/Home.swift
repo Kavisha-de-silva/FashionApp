@@ -10,46 +10,58 @@ import SwiftUI
 
 struct Home: View {
     
+    @State var presentSideMenu = false
+    @State var presentSideCart = false
+    
+    
     private var categories = [Categories.All.rawValue, Categories.Apparel.rawValue, Categories.TShirt.rawValue, Categories.Bag.rawValue]
     
     @State private var selectedCategory: Int = 0
     
     var body: some View {
-        ZStack{
-                    Color.white.edgesIgnoringSafeArea(.all)
-                    ZStack{
-                    
-                        VStack(spacing: 0) {
-                                        ScrollView(.vertical) {
-                                            HeroImageView()
-                                            NewArrival()
-                                            Image("Brand")
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                            
-                                            CollectionView()
-                                            Footer()
-                                            
-                                            Spacer()
-                                           
-                                        }
-                                        .edgesIgnoringSafeArea(.all)
-                                    }
-                                        .padding(.top, 50)
-                        }
+        
+        NavigationStack{
+            ZStack{
+                        Color.white.edgesIgnoringSafeArea(.all)
+                        ZStack{
                         
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    //.overlay{
-                    
-                    //}
-                   .overlay(alignment: .top){
-                       HeaderView {
-                           
-                       } cartAction: {
-    
-                       }
+                            VStack(spacing: 0) {
+                                            ScrollView(.vertical) {
+                                                HeroImageView()
+                                                NewArrival()
+                                                Image("Brand")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                
+                                                CollectionView()
+                                                Footer()
+                                                
+                                                Spacer()
+                                               
+                                            }
+                                            .edgesIgnoringSafeArea(.all)
+                                        }
+                                            .padding(.top, 50)
+                            }
+                            
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        //.overlay{
+                        
+                        //}
+                       .overlay(alignment: .top){
+                           HeaderView {
+                               presentSideMenu.toggle()
+                               
+                           } cartAction: {
+                               presentSideCart.toggle()
+                           }
+                    }
+                SideMenu()
+                SideCart()
                 }
-            }
+            .navigationBarHidden(true)
+        }
+       
         
         
     }
@@ -155,12 +167,12 @@ struct Home: View {
 
         @ViewBuilder
         private func SideMenu() -> some View {
-
+            SideView(isShowing: $presentSideMenu, content: AnyView(SideMenuViewContents(presentSideMenu: $presentSideMenu)), direction: .leading)
         }
 
         @ViewBuilder
         private func SideCart() -> some View {
-
+            SideView(isShowing: $presentSideCart, content: AnyView(SideCartViewContents(presentSideMenu: $presentSideCart)), direction: .trailing)
         }
 }
 

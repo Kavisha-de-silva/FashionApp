@@ -12,9 +12,9 @@ struct ProductItems: View {
     
     var body: some View {
         
-        Button {
-            
-        }label: {
+        NavigationLink{
+            ProductsDetailsView(product: product)
+        } label: {
             VStack {
                 Image(product.Image[0])
                     .resizable()
@@ -36,13 +36,14 @@ struct ProductItems: View {
                     .frame(width: 165, alignment: .leading)
                     .padding(.top, 2)
             }
-        }
-        /*NavigationLink {
-            ProductDetailsView(product: product)
-        } label: {*/
             
-       // }
-
+            /*NavigationLink {
+             ProductDetailsView(product: product)
+             } label: {*/
+            
+            // }
+            
+        }
     }
 }
 
