@@ -28,10 +28,11 @@ struct Home: View {
                             VStack(spacing: 0) {
                                             ScrollView(.vertical) {
                                                 HeroImageView()
+                                                CategoryTiles()
+                                                TopFashionTiles()
                                                 NewArrival()
-                                                Image("Brand")
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fit)
+                                               
+                                                
                                                 
                                                 CollectionView()
                                                 Footer()
@@ -88,8 +89,82 @@ struct Home: View {
                 .offset(.init(width: 0, height: 220))
                }
 
+          
             }
         }
+    
+    @ViewBuilder
+    private func CategoryTiles() -> some View {
+     
+   
+           ScrollView(.horizontal) {
+               HStack(spacing: 10) {
+                   // Example color boxes with text for categories
+                   Color.white
+                       .frame(width: 80, height: 30)
+                       .cornerRadius(8)
+                       .overlay(Text("Red").foregroundColor(.white))
+                   
+                   Color.Default
+                       .frame(width: 100, height: 40)
+                       .cornerRadius(15)
+                       .overlay(Text("WOMEN").foregroundColor(.white))
+                   
+                   Color.Default
+                       .frame(width: 100, height: 40)
+                       .cornerRadius(15)
+                       .overlay(Text("MEN").foregroundColor(.white))
+                   Color.Default
+                       .frame(width: 100, height: 40)
+                       .cornerRadius(15)
+                       .overlay(Text("KID").foregroundColor(.white))
+                   
+                   
+                   // Add more color boxes with text for each category as needed
+               }
+               .padding(.horizontal, 20)
+           }
+    }
+    
+    @ViewBuilder
+    private func TopFashionTiles() -> some View {
+        Text("Top Fashion")
+            .font(.system(size: 28))
+            .foregroundStyle(Color.black)
+            .padding(.top, 20)
+        
+        // Implement your horizontal scroll view for top fashion tiles here
+        ScrollView(.horizontal) {
+            HStack(spacing: 10) {
+                Image("topf1")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 165, height: 200)
+                    .cornerRadius(5)
+                    .shadow(radius: 1)
+                Image("topf2")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 165, height: 200)
+                    .cornerRadius(5)
+                    .shadow(radius: 1)
+                Image("topf3")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 165, height: 200)
+                    .cornerRadius(5)
+                    .shadow(radius: 1)
+                Image("topf4")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 165, height: 200)
+                    .cornerRadius(5)
+                    .shadow(radius: 1)
+               
+            }
+            .padding(.horizontal, 20)
+        }
+    }
 
         @ViewBuilder
         private func NewArrival() -> some View {
@@ -138,6 +213,11 @@ struct Home: View {
                             .frame(width: 18, height: 18)
                     }
                 }
+                Image("Divider")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 140)
+                    .padding(.top, 10)
                 .tint(Color.BodyGrey)
                 .padding(12)
             }

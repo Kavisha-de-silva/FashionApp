@@ -12,18 +12,21 @@ struct Tab: View {
         TabView {
             Home()
                 .tabItem {
-                    Image(systemName: "1.circle")
-                    Text("Tab 2")
+                    Image(systemName: "circle")
+                    Text("Home")
+                }
+            ProductList()
+                .tabItem {
+                    Image(systemName: "circle")
+                    Text("All Products")
                 }
             SideCartViewTemp()
                 .tabItem {
-                    Image(systemName: "2.circle")
-                    Text("Tab 2")
-                }
-            Text("Third Tab")
-                .tabItem {
-                    Image(systemName: "2.circle")
-                    Text("Tab 2")
+                    Image(systemName: "circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    
+                    Text("Cart")
                 }
         }
     }

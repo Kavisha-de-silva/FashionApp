@@ -14,9 +14,7 @@ struct Footer: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             
-            Image("Footer")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            
         }
     }
 }
