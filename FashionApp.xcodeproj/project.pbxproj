@@ -168,7 +168,6 @@
 		D0B196272BB708D3008EE76F /* SupportingViews */ = {
 			isa = PBXGroup;
 			children = (
-				006ABBF52BB82220004A8A14 /* Tab.swift */,
 				D0B1962B2BB70B96008EE76F /* HeaderView.swift */,
 				006ABBEB2BB80D54004A8A14 /* CategoryView.swift */,
 				006ABBED2BB80EC5004A8A14 /* ProductItems.swift */,
@@ -185,6 +184,7 @@
 		D0B196282BB708DE008EE76F /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
+				006ABBF52BB82220004A8A14 /* Tab.swift */,
 				D0B196292BB708FA008EE76F /* Home.swift */,
 				504BDD332BB926B60098848C /* SideMenuView.swift */,
 				504BDD3F2BB95BD80098848C /* ProductList.swift */,
